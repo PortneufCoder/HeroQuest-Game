@@ -1,0 +1,9 @@
+# modules
+
+**/Engine/bin
+**/Engine/obj
+**/Engine/Engine.csproj
+
+# dependencies
+
+*.csproj

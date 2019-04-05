@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Engine.ViewModels;
 
 namespace WPFUI
 {
@@ -20,9 +22,15 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GameSession _gameSession; // private var
+
         public MainWindow()
         {
             InitializeComponent();
+
+            _gameSession = new GameSession(); // instantiate new game session
+
+            DataContext = _gameSession;
         }
     }
 }

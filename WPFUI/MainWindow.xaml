@@ -65,7 +65,7 @@
 
             <Border Grid.Row="0" Grid.Column="1"
                     BorderBrush="DarkGray"
-                    BorderThickness="1">
+                    BorderThickness="2">
                 <Grid Margin="3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" /> <!--As much space as it needs-->
@@ -87,7 +87,8 @@
                     </Image>
                     <TextBlock Grid.Row="2"
                                HorizontalAlignment="Center"
-                               Text="{Binding CurrentLocation.Description}">
+                               Text="{Binding CurrentLocation.Description}"
+                               TextWrapping="Wrap">
                     </TextBlock>
                 </Grid>
             </Border>

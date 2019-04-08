@@ -1,10 +1,12 @@
 ﻿using Engine.Models;
+using Engine.Factories;
 
 
 namespace Engine.ViewModels
 {
     public class GameSession
     {
+        public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
         public Location CurrentLocation { get; set; }
 
@@ -19,12 +21,11 @@ namespace Engine.ViewModels
             CurrentPlayer.Level = 1;
             CurrentPlayer.Gold = 1000000;
 
-            CurrentLocation = new Location();
-            CurrentLocation.Name = "Home";
-            CurrentLocation.XCoordinate = 0;
-            CurrentLocation.YCoordinate = -1;
-            CurrentLocation.Description = "This is your Home!";
-            CurrentLocation.ImageName = "/Engine;component/Images/Locations/Home.png";
+
+            WorldFactory factory = new WorldFactory();
+            CurrentWorld = factory.CreateWorld();
+
+            CurrentLocation = CurrentWorld.LocationAt(0, -1);
 
         }
     }

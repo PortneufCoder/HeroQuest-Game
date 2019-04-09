@@ -20,10 +20,25 @@ namespace WPFUI
             DataContext = _gameSession;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void OnClick_MoveNorth(object sender, RoutedEventArgs e) // visible only within this class
         {
-            // when clicked add 10 to current XP
-            _gameSession.CurrentPlayer.ExperiencePoints = _gameSession.CurrentPlayer.ExperiencePoints + 10;
+            _gameSession.MoveNorth(); // call my functions in the game session class
         }
+
+        private void OnClick_MoveWest(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveWest();
+        }
+
+        private void OnClick_MoveEast(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveEast();
+        }
+
+        private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveSouth();
+        }
+
     }
 }

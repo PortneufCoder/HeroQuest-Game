@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Engine.ViewModels
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : BaseNotification //GameSession inherits the code in BaseNotification class
     {
         private Location _currentLocation;
 
@@ -18,11 +18,11 @@ namespace Engine.ViewModels
                 {
                     _currentLocation = value;
 
-                    OnPropertyChanged("CurrentLocation");
-                    OnPropertyChanged("HasLocationToNorth");
-                    OnPropertyChanged("HasLocationToEast");
-                    OnPropertyChanged("HasLocationToWest");
-                    OnPropertyChanged("HasLocationToSouth");
+                    OnPropertyChanged(nameof(CurrentLocation));
+                    OnPropertyChanged(nameof(HasLocationToNorth));
+                    OnPropertyChanged(nameof(HasLocationToEast));
+                    OnPropertyChanged(nameof(HasLocationToWest));
+                    OnPropertyChanged(nameof(HasLocationToSouth));
             }
         }
 
@@ -103,13 +103,6 @@ namespace Engine.ViewModels
         public void MoveSouth()
         {
             CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }       
     }
 }

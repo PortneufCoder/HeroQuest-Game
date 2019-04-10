@@ -42,7 +42,6 @@ namespace Engine.ViewModels
             {
 
                 return CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
-                // if the world has a location at the X and Y coords to the North, return it
             }
         }
 
@@ -52,7 +51,6 @@ namespace Engine.ViewModels
             {
 
                 return CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
-                // if the world has a location at the X and Y coords to the North, return it
             }
         }
 
@@ -61,25 +59,24 @@ namespace Engine.ViewModels
             get
             {
 
-                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
-                // if the world has a location at the X and Y coords to the North, return it
+                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;               
             }
         }
 
         public GameSession() 
         {
             // All these objects will bind to the view
-            CurrentPlayer = new Player();
-            CurrentPlayer.Name = "Aragon";
-            CurrentPlayer.CharacterClass = "Dunedin";
-            CurrentPlayer.HitPoints = 10;
-            CurrentPlayer.ExperiencePoints = 0;
-            CurrentPlayer.Level = 1;
-            CurrentPlayer.Gold = 1000000;
+            CurrentPlayer = new Player
+                            {
+                                Name = "Aragon",
+                                CharacterClass = "Dunedin",
+                                HitPoints = 10,
+                                ExperiencePoints = 0,
+                                Level = 1,
+                                Gold = 1000000
+                            };
 
-
-            WorldFactory factory = new WorldFactory();
-            CurrentWorld = factory.CreateWorld();
+            CurrentWorld = WorldFactory.CreateWorld(); // calls the static WorldFactory class directly without using a new instance of it.
 
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
 
@@ -87,22 +84,35 @@ namespace Engine.ViewModels
 
         public void MoveNorth()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
+            // guard condition to prevent errors. Check this condition before setting CurrentLocation
+            if (HasLocationToNorth)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
+            }          
         }
 
         public void MoveEast()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
+            if (HasLocationToEast)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
+            }          
         }
 
         public void MoveWest()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+            if (HasLocationToWest)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+            }
         }
 
         public void MoveSouth()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
+            if (HasLocationToSouth)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
+            }
         }       
     }
 }

@@ -79,7 +79,6 @@ namespace Engine.ViewModels
             CurrentWorld = WorldFactory.CreateWorld(); // calls the static WorldFactory class directly without using a new instance of it.
 
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
-
         }
 
         public void MoveNorth()

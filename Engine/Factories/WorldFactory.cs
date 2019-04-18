@@ -19,6 +19,8 @@ namespace Engine.Factories
                 "Beware of this corn field, there are giant rats lurking within it.",
                 "/Engine;component/Images/Locations/FarmFields.png");
 
+            newWorld.LocationAt(-2, -1).AddMonster(2, 100);
+
             newWorld.AddLocation(-1, 0, "Trading Inn", "The inn of Leoksa, the trader.",
                 "/Engine;component/Images/Locations/Trader.png");
 
@@ -33,6 +35,8 @@ namespace Engine.Factories
                 "The trees in this forest are teeming with webs... and spiders",
                 "/Engine;component/Images/Locations/SpiderForest.png");
 
+            newWorld.LocationAt(-2, 0).AddMonster(3, 100);
+
             newWorld.AddLocation(0, 1, "Herbalist's Cottage", 
                 "You see a hay-covered cottage, with herbs, drying outside",
                 "/Engine;component/Images/Locations/HerbalistsHut.png");
@@ -42,6 +46,8 @@ namespace Engine.Factories
             newWorld.AddLocation(0, 2, "Herbalist garden", 
                 "Watch out! There are many medicinal plants here, but snakes hide amongst them!",
                 "/Engine;component/Images/Locations/HerbalistsGarden.png");
+
+            newWorld.LocationAt(0, 2).AddMonster(1, 100);
 
             return newWorld; // instantiate a new world object and return it where its called
         }

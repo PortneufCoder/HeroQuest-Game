@@ -60,7 +60,7 @@ namespace Engine.Models
                 }
             }
 
-            // return an instance of the monster by its ID
+            // return an instance of the monster by its ID, if there was a problem
             return MonsterFactory.GetMonster(MonstersHere.Last().MonsterID);
         }
     }

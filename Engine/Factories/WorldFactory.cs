@@ -35,7 +35,7 @@ namespace Engine.Factories
                 "The trees in this forest are teeming with webs... and spiders",
                 "/Engine;component/Images/Locations/SpiderForest.png");
 
-            newWorld.LocationAt(-2, 0).AddMonster(3, 100);
+            newWorld.LocationAt(2, 0).AddMonster(3, 100);
 
             newWorld.AddLocation(0, 1, "Herbalist's Cottage", 
                 "You see a hay-covered cottage, with herbs, drying outside",

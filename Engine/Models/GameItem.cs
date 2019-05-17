@@ -3,6 +3,7 @@ namespace Engine.Models
 {
     public class GameItem
     {
+        // GameItem ctr
         public int ItemTypeID { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }

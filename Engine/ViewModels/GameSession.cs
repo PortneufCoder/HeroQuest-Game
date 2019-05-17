@@ -151,7 +151,7 @@ namespace Engine.ViewModels
 
         private void GetMonsterAtLocation()
         {
-            CurrentMonster = CurrentLocation.GetMonster();
+            CurrentMonster = CurrentLocation.GetMonster(); 
         }
     }
 }

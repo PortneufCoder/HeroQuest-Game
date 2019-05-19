@@ -16,7 +16,7 @@ namespace Engine.Models
         public Weapon(int itemTypeID, string name, int price, int minDamage, int maxDamage) 
             : base(itemTypeID, name, price)
         {
-            MinimumDamage = minDamage; // the property is equal tot he value of the parameter
+            MinimumDamage = minDamage; // the property is equal to the value of the parameter
             MaximumDamage = minDamage;
         }
 

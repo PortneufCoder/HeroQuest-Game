@@ -11,3 +11,4 @@ D:\RPG\HeroQuest-Game\Engine\obj\Debug\Engine.dll
 D:\RPG\HeroQuest-Game\Engine\obj\Debug\Engine.pdb
 D:\RPG\HeroQuest-Game\Engine\bin\Debug\Engine.dll
 D:\RPG\HeroQuest-Game\Engine\bin\Debug\Engine.pdb
+D:\RPG\HeroQuest-Game\Engine\obj\Debug\Engine.csprojAssemblyReference.cache

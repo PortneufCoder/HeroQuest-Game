@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Engine.ViewModels
 {
-    public class GameSession : BaseNotification //GameSession inherits the code in BaseNotification class
+    public class GameSession : BaseNotification // GameSession inherits the code in BaseNotification class
     {
         private Location _currentLocation;
         private Monster _currentMonster;

@@ -20,6 +20,10 @@ namespace Engine.Models
             }
         }
 
+        // Ability for the monster to fight
+        public int MinimumDamage { get; set; }
+        public int MaximumDamage { get; set; }
+
         public int RewardExperiencePoints { get; private set; }
         public int RewardGold { get; private set; }
 
@@ -27,7 +31,8 @@ namespace Engine.Models
 
         public Monster(string name, string imageName,
             int maximumHitPoints, int hitPoints,
-            int rewardExperiencePoints, int rewardGold)
+            int rewardExperiencePoints, int rewardGold,
+            int minimumDamage, int maximumDamage)
         {
             Name = name;
             ImageName = string.Format("/Engine;component/Images/Monsters/{0}", imageName);
@@ -35,6 +40,8 @@ namespace Engine.Models
             HitPoints = hitPoints;
             RewardExperiencePoints = rewardExperiencePoints;
             RewardGold = rewardGold;
+            MinimumDamage = minimumDamage;
+            MaximumDamage = maximumDamage;
 
             Inventory = new ObservableCollection<ItemQuantity>();
         }

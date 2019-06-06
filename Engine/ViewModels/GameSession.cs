@@ -53,6 +53,8 @@ namespace Engine.ViewModels
             }
         }
 
+        public Weapon CurrentWeapon { get; set; }
+
         public bool HasLocationToNorth
         {
             get
@@ -113,6 +115,11 @@ namespace Engine.ViewModels
                                 Gold = 1000000
                             };
 
+            if (!CurrentPlayer.Weapons.Any())
+            {
+                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+            }
+
             CurrentWorld = WorldFactory.CreateWorld(); // calls the static WorldFactory class directly without using a new instance of it.
 
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
@@ -166,6 +173,22 @@ namespace Engine.ViewModels
         {
             CurrentMonster = CurrentLocation.GetMonster(); 
         }
+
+        public void AttackCurrentMonster()
+        {
+            if (CurrentWeapon == null)
+            {
+                RaiseMessage("You must select a weapon before attacking!");
+
+                return;
+            }
+        }
+
+        // Determine damage to monster
+        int damageToMonster = RandomNumberGenerator.NumberBetween(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
+
+
+        
 
         private void RaiseMessage(string message)
         {
